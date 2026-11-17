@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>SERP Tracker Pro</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <img src="logo.png" alt="SERP Tracker Pro" class="logo">
+      <div>
+        <h1 class="title">SERP Tracker Pro</h1>
+        <p class="tagline">Real-time SERP rank checker</p>
+      </div>
+    </div>
+
+    <button id="exportBtn" class="btn primary full">Export SERP to CSV</button>
+
+    <div class="divider"></div>
+
+    <p class="context">Check your domain rank on the current SERP</p>
+
+    <div class="domainRow">
+      <div class="inputWrapper">
+        <input id="domainInput" type="text" placeholder="Enter domain" autocomplete="off">
+        <ul id="domainDropdown" class="domainDropdown hidden"></ul>
+      </div>
+      <button id="checkBtn" class="btn primary">Check Rank</button>
+    </div>
+
+    <!-- Historial — solo visible en Pro -->
+    <div id="domainHistorySection" class="hidden"></div>
+
+    <div id="progressArea" class="progressArea hidden" aria-live="polite">
+      <div class="progressRow">
+        <div id="statusText" class="statusText">Ready</div>
+        <div id="progressPercent" class="progressPercent">0%</div>
+      </div>
+      <div class="progressBarWrap">
+        <div id="progressBar" class="progressBar"></div>
+      </div>
+      <div id="spinner" class="spinner hidden" aria-hidden="true"></div>
+    </div>
+
+    <div id="output" class="output" aria-live="polite"></div>
+
+    <div class="divider"></div>
+
+    <!-- LICENSE SECTION: Free -->
+    <div id="freeView" class="licenseBox">
+      <div class="licenseTitle">⭐ Upgrade to Pro — €6.90</div>
+      <div class="licenseDesc">Unlock Title &amp; Meta desc, domain history and more.</div>
+      <a href="https://payhip.com/b/VvA5J" target="_blank" rel="noopener" class="btn primary full btnSmall" style="text-align:center;text-decoration:none;display:block;margin-bottom:8px;">Get Pro License</a>
+      <button id="showLicenseBtn" class="btnSecondary full">I already have a license key</button>
+      <div id="licenseForm" class="hidden">
+        <input id="licenseInput" type="text" placeholder="Enter license key" autocomplete="off" class="licenseInput">
+        <button id="activateBtn" class="btn primary full btnSmall">Activate</button>
+        <div id="activateStatus" class="licenseStatus"></div>
+      </div>
+    </div>
+
+    <!-- LICENSE SECTION: Pro -->
+    <div id="proView" class="licenseBox hidden">
+      <div class="proBadge">✓ Pro Active</div>
+      <div id="licenseDisplay" class="licenseKey"></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px;">
+        <button id="importDomainsBtn" class="btnSecondary" style="width:auto;font-size:11px;padding:5px 10px;">⬆ Import domains</button>
+        <button id="deactivateBtn" class="btnDeactivate">Deactivate license</button>
+      </div>
+      <input type="file" id="importFileInput" accept=".txt" style="display:none;">
+      <div id="importStatus" style="font-size:11px;color:#6b8f71;margin-top:4px;min-height:14px;"></div>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
